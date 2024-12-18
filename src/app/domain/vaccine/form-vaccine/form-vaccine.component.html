@@ -1,0 +1,84 @@
+<h2 mat-dialog-title class="dialog-title">{{ data ? 'Actualizar Vacuna Existente' : 'Registro de Nueva Vacuna' }}</h2>
+
+<div mat-dialog-content class="formulario-vacuna" style="height: auto;">
+  <form [formGroup]="vaccineForm" class="form">
+
+    <div class="form-row">
+      <div class="form-column">
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Nombre de la Vacuna</mat-label>
+          <input matInput placeholder="Nombre de la Vacuna" formControlName="nameVaccine" color="accent">
+          <mat-error *ngIf="vaccineForm.get('nameVaccine')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Tipo de Vacuna</mat-label>
+          <input matInput placeholder="Tipo de Vacuna" formControlName="typeVaccine" color="accent">
+          <mat-error *ngIf="vaccineForm.get('typeVaccine')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Descripción</mat-label>
+          <textarea matInput placeholder="Descripción" formControlName="description" color="accent"></textarea>
+          <mat-error *ngIf="vaccineForm.get('description')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Fecha de Fabricación</mat-label>
+          <input matInput [matDatepicker]="manufacturingPicker" placeholder="Selecciona una fecha" formControlName="manufacturingDate" color="warn">
+          <mat-datepicker-toggle matSuffix [for]="manufacturingPicker"></mat-datepicker-toggle>
+          <mat-datepicker #manufacturingPicker></mat-datepicker>
+          <mat-error *ngIf="vaccineForm.get('manufacturingDate')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+
+      <div class="form-column">
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Fecha de Vencimiento</mat-label>
+          <input matInput [matDatepicker]="expirationPicker" placeholder="Selecciona una fecha" formControlName="expirationDate" color="warn">
+          <mat-datepicker-toggle matSuffix [for]="expirationPicker"></mat-datepicker-toggle>
+          <mat-datepicker #expirationPicker></mat-datepicker>
+          <mat-error *ngIf="vaccineForm.get('expirationDate')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Precio</mat-label>
+          <input matInput placeholder="Precio" formControlName="price" type="number" color="primary">
+          <mat-error *ngIf="vaccineForm.get('price')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Stock</mat-label>
+          <input matInput placeholder="Cantidad en Stock" formControlName="stock" type="number" color="primary">
+          <mat-error *ngIf="vaccineForm.get('stock')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+      </div>
+    </div>
+
+    <mat-dialog-actions class="dialog-actions">
+      <button mat-raised-button (click)="cancelar()" color="warn">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="saveVaccine()">
+        {{ data ? 'Actualizar' : 'Registrar' }}
+      </button>
+    </mat-dialog-actions>
+
+  </form>
+</div>

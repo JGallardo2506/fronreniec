@@ -1,0 +1,36 @@
+.dialog-title{
+  background: rgba(65, 65, 65, 0.274);
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  color: rgb(41, 39, 39);
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.formulario-cliente {
+  max-height: none; /* Asegura que el contenido se ajuste automáticamente */
+  overflow: visible; /* Elimina barras de desplazamiento no deseadas */
+}
+
+.FormularioCliente{
+  width: '700px',
+}
+
+.form-row {
+  display: flex;
+}
+
+.form-column {
+  flex: 1;
+  padding: 0 10px; /* Ajusta el espaciado entre columnas según sea necesario */
+}
+
+/* Ajusta el estilo de los campos de formulario según sea necesario */
+.example-form-field {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.example-full-width{
+  width: 100%;
+  margin-top: 16px;
+}

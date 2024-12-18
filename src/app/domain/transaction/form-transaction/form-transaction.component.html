@@ -1,0 +1,94 @@
+<h2 mat-dialog-title class="dialog-title">{{ data ? 'Actualizar Vacuna Existente' : 'Registro de Nueva Vacuna' }}</h2>
+
+<div mat-dialog-content class="formulario-vacuna" style="height: auto;">
+  <form [formGroup]="transactionForm" class="form">
+
+    <div class="form-row">
+      <div class="form-column">
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Nombre de la Vacuna</mat-label>
+          <mat-select formControlName="vaccineId" color="accent">
+              <mat-option *ngFor="let vaccine of vaccines" [value]="vaccine.id">
+                  {{ vaccine.nameVaccine }} <!-- Asegúrate de que 'nombre' sea la propiedad correcta -->
+              </mat-option>
+          </mat-select>
+          <mat-error *ngIf="transactionForm.get('vaccineId')?.errors?.['required']">
+              Completa este campo por favor
+          </mat-error>
+      </mat-form-field>
+      
+      
+      
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Fecha de Aplicación</mat-label>
+          <input matInput [matDatepicker]="applicationPicker" placeholder="Selecciona una fecha" formControlName="applicationDate" color="warn">
+          <mat-datepicker-toggle matSuffix [for]="applicationPicker"></mat-datepicker-toggle>
+          <mat-datepicker #applicationPicker></mat-datepicker>
+          <mat-error *ngIf="transactionForm.get('applicationDate')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Fecha de Registro</mat-label>
+          <input matInput [matDatepicker]="registrationPicker" placeholder="Selecciona una fecha" formControlName="dateRegistration" color="warn">
+          <mat-datepicker-toggle matSuffix [for]="registrationPicker"></mat-datepicker-toggle>
+          <mat-datepicker #registrationPicker></mat-datepicker>
+          <mat-error *ngIf="transactionForm.get('dateRegistration')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Costo de Aplicación</mat-label>
+          <input matInput placeholder="Costo de Aplicación" formControlName="costApplication" type="number" color="primary">
+          <mat-error *ngIf="transactionForm.get('costApplication')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Correo Electrónico</mat-label>
+          <input matInput placeholder="Correo Electrónico" formControlName="email" type="email" color="primary">
+          <mat-error *ngIf="transactionForm.get('email')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Cantidad</mat-label>
+          <input matInput placeholder="Cantidad" formControlName="amount" type="number" color="primary">
+          <mat-error *ngIf="transactionForm.get('amount')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+          <mat-error *ngIf="transactionForm.get('amount')?.errors?.['min']">
+            La cantidad debe ser mayor a 0
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="example-form-field">
+          <mat-label>Cantidad Aves</mat-label>
+          <input matInput placeholder="Cantidad Aves" formControlName="quantityBirds" type="number" color="primary">
+          <mat-error *ngIf="transactionForm.get('quantity_birds')?.errors?.['required']">
+            Completa este campo por favor
+          </mat-error>
+          <mat-error *ngIf="transactionForm.get('quantity_birds')?.errors?.['min']">
+            La cantidad debe ser mayor a 0
+          </mat-error>
+        </mat-form-field>
+
+
+      </div>
+    </div>
+
+    <mat-dialog-actions class="dialog-actions">
+      <button mat-raised-button (click)="cancelar()" color="warn">Cancelar</button>
+      <button mat-raised-button color="primary" (click)="saveVaccine()">
+        {{ data ? 'Actualizar' : 'Registrar' }}
+      </button>
+    </mat-dialog-actions>
+
+  </form>
+</div>

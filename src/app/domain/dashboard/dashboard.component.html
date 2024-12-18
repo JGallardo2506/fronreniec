@@ -1,0 +1,89 @@
+<div class="grid-container">
+  <h1 class="mat-h1">Dashboard</h1>
+  
+  <mat-grid-list cols="2" rowHeight="350px">
+    <!-- Card for Products -->
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Vacunas
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menuProducts" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menuProducts="matMenu" xPosition="before">
+              <button mat-menu-item>Expandir</button>
+              <button mat-menu-item>Eliminar</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Información de Vacunas aquí</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    
+    <!-- Card for Clients -->
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Proveedores
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menuClients" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menuClients="matMenu" xPosition="before">
+              <button mat-menu-item>Expandir</button>
+              <button mat-menu-item>Eliminar</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Información de Proveedores aquí</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    
+    <!-- Card for Sales -->
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Ventas
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menuSales" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menuSales="matMenu" xPosition="before">
+              <button mat-menu-item>Expandir</button>
+              <button mat-menu-item>Eliminar</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Información de ventas aquí</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+    
+    <!-- Card for Purchases -->
+    <mat-grid-tile>
+      <mat-card class="dashboard-card">
+        <mat-card-header>
+          <mat-card-title>
+            Compras
+            <button mat-icon-button class="more-button" [matMenuTriggerFor]="menuPurchases" aria-label="Toggle menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menuPurchases="matMenu" xPosition="before">
+              <button mat-menu-item>Expandir</button>
+              <button mat-menu-item>Eliminar</button>
+            </mat-menu>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="dashboard-card-content">
+          <div>Información de compras aquí</div>
+        </mat-card-content>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>
